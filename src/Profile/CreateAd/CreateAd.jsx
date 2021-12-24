@@ -10,7 +10,7 @@ import alpaka from '../../img/alpaka.png'
 import map from '../../img/map.png'
 import photo from '../../img/photo_icon.png'
 import { Field, reduxForm } from 'redux-form'
-import {file_upload, Input} from '../../components/forms/form_controls'
+import {file_upload, Input, RadioInput} from '../../components/forms/form_controls'
 import { required } from '../../components/forms/validators'
 
 const TitleIcon = styled.img`
@@ -95,26 +95,24 @@ const RadioButtonContainer = styled.label`
         font-size: 35px;
         font-weight: bold;
         color: ${color_white};
-        position: relative;
         &::after{
             content: '';
             position: absolute;
-            right: 0;
-            bottom:  0;
-            top: 0;
+            right: 40px;
+            bottom:  40px;
             border: 2px solid ${color_white};
             border-radius: 100%;
-            height: 45px;
-            width: 45px;
+            height: 54px;
+            width: 54px;
         }
         &::before{
             content: '';
             position: absolute;
-            right: 12px;
-            bottom:  10px;
+            right: 51.5px;
+            bottom:  51.5px;
             border-radius: 100%;
-            height: 25px;
-            width: 25px;
+            height: 35px;
+            width: 35px;
         }
         
         &>input{
@@ -143,7 +141,7 @@ const RadioButtonContainer = styled.label`
         left: 0;
         top: 0;
 
-        &:checked + label::before{
+        &:checked+label::before{
             background: ${color_white};
         }
     }
@@ -305,19 +303,16 @@ const ContactsContainer = styled.div`
     grid-column-gap: 13px;
     grid-row-gap: 17px;
 
-    &>div>input{
-        border: 3px solid ${color_border_grey};
+    &>input{
         border-radius: 10px 100% 25px 100px;
         padding: 23px 32px;
         outline: none;
         font-size: 21px;
         
-        &::placeholder{
-            color: ${color_grey};
-        }
+        
     }
 
-    &>div>input:nth-child(3){
+    &>input:nth-child(3){
         grid-column: 1/-1;
     }
 `
@@ -346,17 +341,17 @@ let CreateForm = reduxForm({form: 'ResumeInfo'})((props)=>{
                 <RadioButtonsContainer>
                     <RadioDog htmlFor='dog' color={color_main_green}>
                         <RadioButtonImg src={pesik} />
-                        <Field component={Input} type='radio' id='dog' name='animal' value='dog' validate={[required]} />
+                        <Field component={RadioInput} type={'radio'} id={'dog'} name='animal' value='dog' checked='checked' />
                         <label htmlFor="dog">собака</label>
                     </RadioDog>
                     <RadioCat htmlFor='cat' color={color_main_orange}>
                         <RadioButtonImg src={kotenok} />
-                        <Field component={Input} type='radio' id='cat' name='animal' value='cat' />
+                        <Field component={RadioInput} type='radio' id='cat' name='animal' value='cat' />
                         <label htmlFor="cat">кошка</label>
                     </RadioCat>
                     <RadioOther htmlFor='other' color={color_main_orange}>
                         <RadioButtonImg src={alpaka} />
-                        <Field ref={radio_other} component={Input} type='radio' id='other' name='animal' value='other' />
+                        <Field ref={radio_other} component={RadioInput} type='radio' id='other' name='animal' value='other' />
                         <label htmlFor="other">другие
                             <Field component={Input} name={'other_animal'} placeholder='Введите животное' />
                         </label>

@@ -373,7 +373,7 @@ let CreateForm = reduxForm({form: 'ResumeInfo'})((props)=>{
                     <label htmlFor="lost">Потерян</label>
                     <Field component={RadioInput} type='radio' id='discovered' name='type' value='discovered' />
                     <label htmlFor="discovered">Найден</label>
-                    <Field component={RadioInput} type='radio' id='homeless' name='type' value='homeless' validate={[radio_required]} />
+                    <Field component={RadioInput} type='radio' id='stray' name='type' value='stray' validate={[radio_required]} />
                     <label htmlFor="homeless">Бездомный</label>
                 </TypeContainer>
             </FormItem>

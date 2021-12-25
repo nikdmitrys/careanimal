@@ -15,7 +15,7 @@ const ErrorMessage = styled.div`
 
     &>span{
         background: ${color_white};
-        border: medium dashed ${color_error};
+        border: medium solid ${color_error};
         padding: .5em;
         border-radius: 5px;
         box-shadow: 5px 7px 8px 0px rgba(0, 0, 0, 0.2);
@@ -25,6 +25,7 @@ const ErrorMessage = styled.div`
 const InputStyle = styled.input`
     
     position: relative;
+    outline: none;
 
     &::placeholder{
         color: ${color_grey};

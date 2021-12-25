@@ -1,50 +1,21 @@
 import React, {useState} from 'react'
 import styled from '@emotion/styled'
-import title_icon from '../../img/zhivotnye_v_serdtse.png'
 import { Container as DefaultContainer, Wrapper } from '../../components/wrapper'
 import { Btn } from '../../components/buttons'
-import { color_border_grey, color_grey, color_main_green, color_main_orange, color_white } from '../../components/colors'
-import pesik from '../../img/pesik.png'
-import kotenok from '../../img/kotenok.png'
-import alpaka from '../../img/alpaka.png'
-import map from '../../img/map.png'
-import photo from '../../img/photo_icon.png'
+import { color_border_grey, color_grey, color_light_grey_background, color_main_green, color_main_orange, color_white } from '../../components/colors'
+import pesik from '../../components/img/pesik.png'
+import kotenok from '../../components/img/kotenok.png'
+import alpaka from '../../components/img/alpaka.png'
+import map from '../../components/img/map.png'
+import photo from '../../components/img/photo_icon.png'
 import { Field, reduxForm } from 'redux-form'
 import {file_upload, Input, RadioInput} from '../../components/forms/form_controls'
 import { file_required, radio_required, required } from '../../components/forms/validators'
-
-const TitleIcon = styled.img`
-    height: 214px;
-	width: auto;
-	position: absolute;
-	z-index: 10;
-    top: -2em;
-    left: -1em;
-`
-
-const TitleContainer = styled.div`
-    background: ${color_main_orange};
-    color: ${color_white};
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    padding-top: 36px;
-    padding-bottom: 30px;
-    margin-top: 80px;
-    font-size: 45px;
-    
-    h1{
-        font-size: 45px;
-    }
-`
-
-const Container = styled(DefaultContainer)`
-    position: relative;
-`
+import Title from '../../components/Title'
 
 const FormContainer = styled(DefaultContainer)`
-    background: #f8f8f8;
-    border: 3px solid #c6c6c6;
+    background: ${color_light_grey_background};
+    border: 3px solid ${color_border_grey};
     border-radius: 10px;
     margin-top: 162px;
     padding-top: 95px;
@@ -123,7 +94,6 @@ const RadioButtonContainer = styled.label`
             padding-right: 23px;
             padding-bottom: 15px;
             background: inherit;
-            outline: none;
             border: 2px solid ${color_white};
             border-radius: 5px;
             font-size: 17px;
@@ -204,7 +174,6 @@ const FormMap = styled.div`
         border: 2px solid ${color_main_orange};
         border-radius: 10px;
         min-width: 402px;
-        outline: none;
     }
 `
 
@@ -417,16 +386,13 @@ let CreateAd = ( props ) => {
     }
 
     return ( <Wrapper>
-		<TitleContainer>
-            <Container>
-                <TitleIcon src={title_icon} />
-                <h1>Создать объявление</h1>
-            </Container>
-        </TitleContainer>
+        <Title title='Создать объявление' />
         <FormContainer>
             <CreateForm onSubmit={CreateAdSubmit} />
         </FormContainer> 
 	</Wrapper> )
 }
+
+
 
 export default CreateAd

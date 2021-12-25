@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import logo from '../img/logo.png'
+import logo from '../components/img/logo.png'
 import {NavLink} from 'react-router-dom'
 
 const Wrapper = styled.div`
@@ -61,12 +61,12 @@ let Header = ( props ) => {
 			<LeftSide>
 				<Logo to='/' />
 				<Nav>
-					<Link to='/'>найденные</Link>
-					<Link to='/'>бездомные</Link>
+					<Link to='/feed/house/'>найденные</Link>
+					<Link to='/feed/stray/'>бездомные</Link>
 				</Nav>
 			</LeftSide>
 			<RightSide>
-				<Link orange to='/profile/createAd'>Создать объявление</Link>
+				<Link orange to='/profile/createAd/'>Создать объявление</Link>
 				<Link to='/'>выход</Link>
 			</RightSide>
 		</Container>

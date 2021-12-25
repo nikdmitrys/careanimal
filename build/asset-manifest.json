@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.75981d35.chunk.css",
+    "main.js": "/static/js/main.a62f6310.chunk.js",
+    "main.js.map": "/static/js/main.a62f6310.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c7fd2409.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c7fd2409.js.map",
+    "static/js/2.be5047ce.chunk.js": "/static/js/2.be5047ce.chunk.js",
+    "static/js/2.be5047ce.chunk.js.map": "/static/js/2.be5047ce.chunk.js.map",
+    "static/js/3.d06cde0a.chunk.js": "/static/js/3.d06cde0a.chunk.js",
+    "static/js/3.d06cde0a.chunk.js.map": "/static/js/3.d06cde0a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.75981d35.chunk.css.map": "/static/css/main.75981d35.chunk.css.map",
+    "static/js/2.be5047ce.chunk.js.LICENSE.txt": "/static/js/2.be5047ce.chunk.js.LICENSE.txt",
+    "static/media/MellaNissa.c281cfb5.ttf": "/static/media/MellaNissa.c281cfb5.ttf",
+    "static/media/alpaka.c57a104c.png": "/static/media/alpaka.c57a104c.png",
+    "static/media/dva_pesika.76d83813.png": "/static/media/dva_pesika.76d83813.png",
+    "static/media/kotenok.b78bbd68.png": "/static/media/kotenok.b78bbd68.png",
+    "static/media/logo.23d53b11.png": "/static/media/logo.23d53b11.png",
+    "static/media/map.7c4b18e5.png": "/static/media/map.7c4b18e5.png",
+    "static/media/motivation.62c9aa9d.png": "/static/media/motivation.62c9aa9d.png",
+    "static/media/pesik.e391d727.png": "/static/media/pesik.e391d727.png",
+    "static/media/zhivotnye_v_serdtse.49209734.png": "/static/media/zhivotnye_v_serdtse.49209734.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c7fd2409.js",
+    "static/js/2.be5047ce.chunk.js",
+    "static/css/main.75981d35.chunk.css",
+    "static/js/main.a62f6310.chunk.js"
+  ]
+}

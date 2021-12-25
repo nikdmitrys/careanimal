@@ -17,3 +17,9 @@ export const checkbox_required = value => {
         return "*Необходимо подтверждение"
     }
 }
+
+export const file_required = value => {
+    if(value)
+        return undefined
+    else return "*Добавьте фотографию"
+}

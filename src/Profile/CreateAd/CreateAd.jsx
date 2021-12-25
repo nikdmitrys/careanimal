@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from '@emotion/styled'
 import title_icon from '../../img/zhivotnye_v_serdtse.png'
 import { Container as DefaultContainer, Wrapper } from '../../components/wrapper'
@@ -11,7 +11,7 @@ import map from '../../img/map.png'
 import photo from '../../img/photo_icon.png'
 import { Field, reduxForm } from 'redux-form'
 import {file_upload, Input, RadioInput} from '../../components/forms/form_controls'
-import { required } from '../../components/forms/validators'
+import { file_required, radio_required, required } from '../../components/forms/validators'
 
 const TitleIcon = styled.img`
     height: 214px;
@@ -331,8 +331,9 @@ const ButtonContainer = styled.div`
 `
 
 let CreateForm = reduxForm({form: 'ResumeInfo'})((props)=>{
-
-    let radio_other = React.createRef()
+    
+    const [other_input_required, set_other_input_required] = useState([])
+    
 
     return(
         <MyForm onSubmit={props.handleSubmit} action="">
@@ -341,19 +342,19 @@ let CreateForm = reduxForm({form: 'ResumeInfo'})((props)=>{
                 <RadioButtonsContainer>
                     <RadioDog htmlFor='dog' color={color_main_green}>
                         <RadioButtonImg src={pesik} />
-                        <Field component={RadioInput} type={'radio'} id={'dog'} name='animal' value='dog' checked='checked' />
+                        <Field component={RadioInput} onChange={()=>{set_other_input_required([])}} type={'radio'} id={'dog'} name='animal' value='dog' />
                         <label htmlFor="dog">собака</label>
                     </RadioDog>
                     <RadioCat htmlFor='cat' color={color_main_orange}>
                         <RadioButtonImg src={kotenok} />
-                        <Field component={RadioInput} type='radio' id='cat' name='animal' value='cat' />
+                        <Field component={RadioInput} onChange={()=>{set_other_input_required([])}} type='radio' id='cat' name='animal' value='cat' />
                         <label htmlFor="cat">кошка</label>
                     </RadioCat>
                     <RadioOther htmlFor='other' color={color_main_orange}>
                         <RadioButtonImg src={alpaka} />
-                        <Field ref={radio_other} component={RadioInput} type='radio' id='other' name='animal' value='other' />
+                        <Field component={RadioInput} onChange={()=>{set_other_input_required([required])}} type='radio' id='other' name='animal' value='other' validate={[radio_required]} />
                         <label htmlFor="other">другие
-                            <Field component={Input} name={'other_animal'} placeholder='Введите животное' />
+                            <Field component={Input} name={'other_animal'} validate={other_input_required} placeholder='Введите животное' />
                         </label>
                     </RadioOther>
                 </RadioButtonsContainer>
@@ -368,11 +369,11 @@ let CreateForm = reduxForm({form: 'ResumeInfo'})((props)=>{
             <FormItem>
                 <h2>выберите тип объявления</h2>
                 <TypeContainer>
-                    <Field ref={radio_other} component={Input} type='radio' id='lost' name='type' value='lost' validate={[required]} />
+                    <Field component={RadioInput} type='radio' id='lost' name='type' value='lost' />
                     <label htmlFor="lost">Потерян</label>
-                    <Field ref={radio_other} component={Input} type='radio' id='discovered' name='type' value='discovered' />
+                    <Field component={RadioInput} type='radio' id='discovered' name='type' value='discovered' />
                     <label htmlFor="discovered">Найден</label>
-                    <Field ref={radio_other} component={Input} type='radio' id='homeless' name='type' value='homeless' />
+                    <Field component={RadioInput} type='radio' id='homeless' name='type' value='homeless' validate={[radio_required]} />
                     <label htmlFor="homeless">Бездомный</label>
                 </TypeContainer>
             </FormItem>
@@ -380,7 +381,7 @@ let CreateForm = reduxForm({form: 'ResumeInfo'})((props)=>{
                 <h2>добавить фотографию</h2>
                 <PhotoContainer>
                     <PhotoLabel htmlFor="photo">Добавить фотографию
-                    <Field validate={[required]} component={file_upload} type={'file'} accept={'image/png, image/gif, image/jpeg'} id={'photo'} name={'photo'} />
+                    <Field validate={[file_required]} component={file_upload} type={'file'} accept={'image/png, image/gif, image/jpeg'} id={'photo'} name={'photo'} />
                     </PhotoLabel>
                 </PhotoContainer>
             </FormItem>
@@ -412,7 +413,7 @@ let CreateAd = ( props ) => {
         Data.append( 'tel', formData.tel )
         Data.append( 'author', props.userID )
         Data.append( 'photo', formData.photo[ 0 ] )
-        console.log( Data )
+        console.log( formData )
     }
 
     return ( <Wrapper>

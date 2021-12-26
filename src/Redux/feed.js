@@ -10,7 +10,7 @@ export const setHouseAnnouncements = ( message ) => {
 
 let initialState = {
     stray:{
-        announcements: [{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},],
+        announcements: [{latlng:[56.000685,92.933431]},{latlng:[56.002005, 92.924800]}],
     },
     house:{
         announcements: [],

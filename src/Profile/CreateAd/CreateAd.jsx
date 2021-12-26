@@ -11,7 +11,7 @@ import { Field, reduxForm } from 'redux-form'
 import {file_upload, Input, RadioInput} from '../../components/forms/form_controls'
 import { file_required, radio_required, required } from '../../components/forms/validators'
 import Title from '../../components/Title'
-import Map from '../../components/Map'
+import Map from '../../components/Map/Map'
 
 const FormContainer = styled(DefaultContainer)`
     background: ${color_light_grey_background};
@@ -328,7 +328,18 @@ let CreateForm = reduxForm({form: 'ResumeInfo'})((props)=>{
                 <h2>Введите адрес</h2>
                 <FormMap>
                     <Field component={Input} validate={[required]} name={'address'} placeholder='Введите адрес пропажи:' />
-                    <Map width={680} height={430} />
+                    <Map width ={680} height = {430} placeholder={'Введите адрес пропажи:'} searchStyle={{
+						fontSize: '18px',
+                        paddingTop: '12px',
+                        paddingLeft: '27px',
+                        paddingRight: '27px',
+                        paddingBottom: '9px',
+                        border: `2px solid ${color_main_orange}`,
+                        borderRadius: '10px',
+                        minWidth: '402px',
+                        marginBottom: '42px',
+                        alignSelf: 'center'
+					}} />
                 </FormMap>
             </FormItem>
             <FormItem>

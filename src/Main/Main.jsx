@@ -9,7 +9,7 @@ import subscribe from '../components/img/dva_pesika.png'
 import { color_main_green, color_main_orange, color_placeholder, color_white,  } from '../components/colors'
 import { Container, Wrapper } from '../components/wrapper'
 import { Button } from '../components/buttons'
-import GMap from '../components/Map'
+import GMap from '../components/Map/Map'
 
 const DescriptionWrapper = styled.div`
 	background: ${color_main_orange};
@@ -276,12 +276,18 @@ let Main = ( props ) => {
 			</Ads>
 			<FoundWrapper>
 				<h2>Найди питомца на карте</h2>
-				<Found>
-					<input placeholder='Введите адрес пропажи:' type="text"/>
-					<input placeholder='Введите приметы питомца:' type="text"/>
-				</Found>
 				<Map>
-					<GMap width ={1102} height = {615} />
+					<GMap stray={props.announcements_stray} house={props.announcements_house} width = {1102} height = {615} searchStyle={{
+						paddingLeft: '48px',
+						paddingRight: '48px',
+						paddingTop: '11px',
+						paddingBottom: '11px',
+						border: `2px solid ${color_main_orange}`,
+						borderRadius: '10px',
+						outline: 'none',
+						marginBottom: '42px',
+						alignSelf: 'start'
+					}} />
 				</Map>
 			</FoundWrapper>
 		</Container>

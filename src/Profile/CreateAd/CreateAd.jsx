@@ -6,12 +6,12 @@ import { color_border_grey, color_grey, color_light_grey_background, color_main_
 import pesik from '../../components/img/pesik.png'
 import kotenok from '../../components/img/kotenok.png'
 import alpaka from '../../components/img/alpaka.png'
-import map from '../../components/img/map.png'
 import photo from '../../components/img/photo_icon.png'
 import { Field, reduxForm } from 'redux-form'
 import {file_upload, Input, RadioInput} from '../../components/forms/form_controls'
 import { file_required, radio_required, required } from '../../components/forms/validators'
 import Title from '../../components/Title'
+import Map from '../../components/Map/Map'
 
 const FormContainer = styled(DefaultContainer)`
     background: ${color_light_grey_background};
@@ -160,12 +160,7 @@ const FormMap = styled.div`
     flex-direction: column;
     align-items: center;
 
-    & img{
-        height: 430px;
-        margin-top: 42px;
-    }
-
-    input{
+    &>input{
         font-size: 18px;
         padding-top: 12px;
         padding-left: 27px;
@@ -174,6 +169,7 @@ const FormMap = styled.div`
         border: 2px solid ${color_main_orange};
         border-radius: 10px;
         min-width: 402px;
+        margin-bottom: 42px;
     }
 `
 
@@ -332,7 +328,18 @@ let CreateForm = reduxForm({form: 'ResumeInfo'})((props)=>{
                 <h2>Введите адрес</h2>
                 <FormMap>
                     <Field component={Input} validate={[required]} name={'address'} placeholder='Введите адрес пропажи:' />
-                    <img src={map} alt="map" />
+                    <Map width ={680} height = {430} placeholder={'Введите адрес пропажи:'} searchStyle={{
+						fontSize: '18px',
+                        paddingTop: '12px',
+                        paddingLeft: '27px',
+                        paddingRight: '27px',
+                        paddingBottom: '9px',
+                        border: `2px solid ${color_main_orange}`,
+                        borderRadius: '10px',
+                        minWidth: '402px',
+                        marginBottom: '42px',
+                        alignSelf: 'center'
+					}} />
                 </FormMap>
             </FormItem>
             <FormItem>

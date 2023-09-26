@@ -1,25 +1,21 @@
 export const required = value => {
-    if ( value ) 
-        return undefined;
-    return "Поле обязательное!"
-}
+	if (value) return null;
+	return 'Поле обязательное!';
+};
 
 export const radio_required = value => {
-    if ( value ) 
-        return undefined;
-    return "*Сделайте выбор"
-}
+	if (value) return null;
+	return '*Сделайте выбор';
+};
 
 export const checkbox_required = value => {
-    if ( value ) 
-        return undefined
-    else {
-        return "*Необходимо подтверждение"
-    }
-}
+	if (value) return null;
+	else {
+		return '*Необходимо подтверждение';
+	}
+};
 
 export const file_required = value => {
-    if(value)
-        return undefined
-    else return "*Добавьте фотографию"
-}
+	if (value) return null;
+	else return '*Добавьте фотографию';
+};

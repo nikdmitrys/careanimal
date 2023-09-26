@@ -1,9 +1,9 @@
-import CreateAd from './CreateAd'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
+import CreateAd from './CreateAd';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
-let mapStateToProps = ( state ) => {
-    return {}
-}
+const mapStateToProps = state => {
+	return {};
+};
 
-export default compose( connect( mapStateToProps, {} ), )( CreateAd )
+export default compose(connect(mapStateToProps, {}))(CreateAd);
